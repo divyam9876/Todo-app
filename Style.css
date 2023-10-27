@@ -1,0 +1,74 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.login,.registration,.todo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    padding: 10px 20px;
+}
+
+.logindiv,.registrationdiv,.tododiv{
+    text-align: center;
+    padding: 20px; 
+    font-size: 25px;
+}
+.loginbody,.registrationbody{
+    /* background-image: url(./images/todoimage.jpg); */
+    background: url(./images/todoimage.jpg) no-repeat center center ; 
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+}
+.todobody{
+    background: url(./images/todoimage.jpg) no-repeat center center fixed; 
+    width: 100%;
+    height:100vh;
+}
+body h2{
+    text-align: center;
+}
+img{
+    /* height: 150px;
+    width: 150px;*/
+    margin: auto;
+    display: block;
+    width:15em;
+    height:15em;
+    /* border-radius: 3em; */
+}
+button{
+    background-color: rgb(109, 109, 198);
+}
+input{
+    background-color:antiquewhite;
+}
+.todotextarea{
+    width: 300px;
+    height: 100px;
+}
+.todotextarea textarea{
+    width: 100%;
+    /* height: 100%; */
+
+}
+.todoform{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.label{
+    margin-bottom: 5px;
+}
+.sub_btn{
+    color: #fff;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    outline: none;
+    border-radius: 20px;
+}
