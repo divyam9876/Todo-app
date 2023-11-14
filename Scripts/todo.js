@@ -1,19 +1,26 @@
-let todoform=document.getElementById("todoform")
-if(todoform) todoform.addEventListener('submit', Addtask)
+//let rform = document.getElementById('registrationForm')
+//if (rform) rform.addEventListener('submit',SignUp)
 
-function Addtask(e){
+function Todo(e){
     e.preventDefault()
+    
+    
+    note= document.getElementById("note").value
 
-    let tasks=document.getElementById("note").value
-    let todoList = document.getElementById("todoList")
-
-    todoList.innerHTML += `<li>${tasks}</li>`
-    // document.getElementById('note').value=""
-    // let li = document.createElement('li')
-    // li.innerText = tasks
-    // todoList.appendChild(li);
+    let user={
+        
+        note: note
+      
+    };
+    console.log(user);
 }
 
+document.addEventListener('DOMContentLoaded',function(){
+    let todoform=document.getElementById('todoform')
+    todoform.addEventListener('submit',Todo)
+})
+    
+    //registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
 
 
-
+    //window.location.href = "login.html";
