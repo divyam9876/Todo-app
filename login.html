@@ -12,23 +12,26 @@
         <nav>
             <a href="registration.html">Register</a> |
             <a href="login.html">Login</a> |
-            <a href="Todo.html">ToDo</a> 
+            <a href="todo.html">ToDo</a> 
         </nav>
     </header>
     <br>
-    <!-- <img src="/images/login.jpg" alt="login"> -->
     <div class="logindiv">
-        <form>
+        <form id="loginForm">
             <h2>Login</h2>
             <label for="username">Username:</label>
-            <input type="text" placeholder="Username">
+            <input type="text" placeholder="Username" id="username" required > 
             <br><br>
-            <label for="username">Password:</label>
-            <input type="password" placeholder="Password">
+            <label for="password">Password:</label>
+            <input type="password" placeholder="Password" id="password" required>
             <br><br>
-            <button type="submit" value="Submit" class="sub_btn">Login </button>
+            <!-- <button type="submit" value="Submit" class="sub_btn">Login </button> -->
+            <button type="submit" value="Login" class="submitbtn">Login</button>
         </form>
     </div>
+    <h3 id="greeting"></h3>
+    
+    <script src="Scripts/login.js"></script>
     <!-- <footer>&copy;todo</footer> -->
 </body>
 </html>

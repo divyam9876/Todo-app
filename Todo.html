@@ -10,28 +10,31 @@
 </head>
 <body>
     <div class="todobody">
-        <!-- <h2>Todo</h2> -->
         <header class="todo">
             <nav>
                 <a href="registration.html">Register</a> |
                 <a href="login.html">Login</a> |
-                <a href="Todo.html">ToDo</a> 
+                <a href="todo.html">ToDo</a> 
             </nav>
         </header>
         <br>
-        <!-- <img src="/images/todoimg.jpg" alt="todo image"> -->
         <div class="tododiv">   
-            <form>
+            <form id="todoform"> 
                 <div class="todoform">
-                    <label class="label">Todo:</label>
-                    <div class="todotextarea">
+                    <label for="note">Task</label>
+                    <input type="text" placeholder="Add task here" id="note" required>
+                    <br>
+                    <button type="submit" value="Addtask" class="submitbtn">Add task</button>
+
+                    <!-- <label class="label">Todo:</label> -->
+                    <!-- <div class="todotextarea">
                         <textarea rows="5" cols="15"  type="text" placeholder="Add a todo here..."></textarea>
-                    </div>
-                    <!-- <input type="submit" value="Add"> -->
-                    <button type="submit" value="Submit" class="sub_btn">Add Todo</button>
+                    </div> -->
                 </div>
             </form> 
         </div>
     </div>
+    <ul id="todoList"></ul>
+    <script src="Scripts/todo.js"></script>
 </body>
 </html>

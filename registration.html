@@ -12,31 +12,29 @@
         <nav>
             <a href="registration.html">Register</a> |
             <a href="login.html">Login</a> |
-            <a href="Todo.html">ToDo</a> 
+            <a href="todo.html">ToDo</a> 
         </nav>
     </header>
     <br>
     <div class="registrationdiv">
-        <form>
+        <form id="registrationForm">
             <h2>Registration</h2>
-            <label>First name:</label>
-            <input type="text" placeholder="First Name">
+            <label for="fName">First name:</label>
+            <input type="text" placeholder="First Name" id="fName">
             <br><br>
-            <label>Last name:</label>
-            <input type="text" placeholder="Last Name">
+            <label for="lName">Last name:</label>
+            <input type="text" placeholder="Last Name" id="lName">
             <br><br>
-            <label>Username:</label>
-            <input type="text" placeholder="Username">
+            <label for="userName">Username:</label>
+            <input type="text" placeholder="Username" id="userName" autocomplete="off">
             <br><br>
-            <!-- <label>Email:</label>
-            <input type="email">
-            <br><br> -->
-            <label>Password:</label>
-            <input type="password" placeholder="**********">
+            <label for="userPassword">Password:</label>
+            <input type="password" placeholder="**********" id="userPassword" >
             <br><br>
-            <!-- <input type="submit" value="Sign Up"> -->
-            <button type="submit" value="Submit" class="sub_btn">Sign Up </button>
+            <button type="submit" value="Sign Up" class="submitbtn">Sign Up</button>
         </form>
     </div>
+    <h4 id="userdetails"></h4>
+    <script src="Scripts/register.js"></script>
 </body>
 </html>
