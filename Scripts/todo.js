@@ -1,5 +1,5 @@
-let todo=document.getElementById("todoform")
-if(todo) todo.addEventListener('submit', Addtask)
+let todoform=document.getElementById("todoform")
+if(todoform) todoform.addEventListener('submit', Addtask)
 
 function Addtask(e){
     e.preventDefault()

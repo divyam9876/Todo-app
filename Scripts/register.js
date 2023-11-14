@@ -13,5 +13,5 @@ function SignUp(e){
     let h4=document.getElementById("userdetails")
     h4.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
 
-    window.location.href = "login.html";
+    //window.location.href = "login.html";
 }

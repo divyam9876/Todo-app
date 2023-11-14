@@ -11,6 +11,6 @@ function login(e){
     let h3=document.getElementById("greeting")
     h3.innerHTML = `Welcome Back ${user.username}!!`
 
-    window.location.href = "todo.html"
+    //window.location.href = "todo.html"
 }
 //console.log("Hello")
