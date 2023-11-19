@@ -13,7 +13,6 @@ function SignUp(e){
         lastName: lastname,
         username: username,
         password:password
-      
     };
     console.log(user);
 }

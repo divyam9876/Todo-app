@@ -8,10 +8,8 @@ function Login(e){
     password= document.getElementById("password").value
 
     let user={
-        
         username: username,
         password:password
-      
     };
     console.log(user);
 }

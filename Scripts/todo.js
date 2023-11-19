@@ -4,13 +4,9 @@
 function Todo(e){
     e.preventDefault()
     
-    
     note= document.getElementById("note").value
-
     let user={
-        
         note: note
-      
     };
     console.log(user);
 }
