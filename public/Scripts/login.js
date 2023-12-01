@@ -19,7 +19,5 @@ document.addEventListener('DOMContentLoaded',function(){
     loginForm.addEventListener('submit',Login)
 })
     
-    //registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
-
-
-    //window.location.href = "login.html";
+    registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
+    window.location.href = "todo.html";

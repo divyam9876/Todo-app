@@ -17,6 +17,4 @@ document.addEventListener('DOMContentLoaded',function(){
 })
     
     //registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
-
-
     //window.location.href = "login.html";

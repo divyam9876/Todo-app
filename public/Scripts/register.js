@@ -22,7 +22,5 @@ document.addEventListener('DOMContentLoaded',function(){
     registrationForm.addEventListener('submit',SignUp)
 })
     
-    //registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
-
-
+    registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
     //window.location.href = "login.html";
