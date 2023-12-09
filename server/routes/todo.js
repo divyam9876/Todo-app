@@ -1,5 +1,5 @@
 const express = require('express');
-const Task = require('../modules/todo');
+const Task = require('../models/todo');
 const { error } = require('console');
 const router = express.Router();
 

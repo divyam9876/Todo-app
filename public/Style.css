@@ -77,3 +77,6 @@ input{
     border-radius: 20px;
     background-color: rgb(109, 109, 198)
 }
+#todoList{
+    color: black;
+}

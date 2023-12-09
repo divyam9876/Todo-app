@@ -1,26 +1,58 @@
 //let rform = document.getElementById('registrationForm')
 //if (rform) rform.addEventListener('submit',SignUp)
+// document.addEventListener('DOMContentLoaded',function(){
+let registrationForm=document.getElementById('registrationForm')
+if(registrationForm) registrationForm.addEventListener('submit',SignUp)
+//})
 
 function SignUp(e){
     e.preventDefault()
-    firstname= document.getElementById("fName").value,
-    lastname= document.getElementById("lName").value,
-    username= document.getElementById("userName").value,
-    password= document.getElementById("userPassword").value
+    // firstname= document.getElementById("fName").value,
+    // lastname= document.getElementById("lName").value,
+    // username= document.getElementById("userName").value,
+    // password= document.getElementById("userPassword").value
 
     let user={
-        firstName:firstname,
-        lastName: lastname,
-        username: username,
-        password:password
-    };
-    console.log(user);
+        firstName:document.getElementById("fName").value,
+        lastName: document.getElementById("lName").value,
+        username: document.getElementById("userName").value,
+        password:document.getElementById("userPassword").value
+    }
+    // let h4=document.getElementById("userdetails")
+    // h4.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
+
+    fetchData("/users/register",user,"POST")
+    .then(data =>{
+        if(!data.message){
+            setCurrentUser(data)
+            window.location.href = "todo.html"
+        }
+    })
+    .catch(err =>{
+        let errorSection = document.querySelector("#registrationForm .error")
+        errorSection.innerText=err.message
+    })
+    //console.log(user)
+    // async function fetchData(route = '', data = {}, methodType) {
+    //     const response = await fetch(`http://localhost:3000${route}`, {
+    //       method: methodType, // *POST, PUT, DELETE, etc.
+    //       headers: {
+    //         'Content-Type': 'application/json'
+    //       },
+    //       body: JSON.stringify(data) 
+    //     });
+    //     if(response.ok) {
+    //       return await response.json(); 
+    //     } else {
+    //       throw await response.json();
+    //     }
+    //   } 
+    function setCurrentUser(user){
+      localStorage.setItem('user',JSON.stringify(user))
+    }
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-    let registrationForm=document.getElementById('registrationForm')
-    registrationForm.addEventListener('submit',SignUp)
-})
-    
-    registrationForm.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
+
+  
+//userdetails.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
     //window.location.href = "login.html";
