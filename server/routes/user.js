@@ -27,7 +27,7 @@ router
 .post('/register', async (req, res) => {
   try {
     const user = await User.register(req.body)
-    res.send({...user, Password: undefined})
+    res.send({...user,Password:undefined})
   } catch(err) {
     res.status(401).send({message: err.message})
   }

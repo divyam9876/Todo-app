@@ -58,19 +58,20 @@ async function readtodo(tasks){
 
 //update
 async function editTitle(tasks){
-    let updatedTitle = await getList(tasks.task)
+    let updatedTitle = await getList(tasks.listid)
+    if(updatedTitle.length<0) throw  Error("list is not yet created")
     let sql = `UPDATE todolist
     SET Title ="${tasks.task}
-    WHERE CreatedDate = "${tasks.CreatedDate}"`
+    WHERE ListId = "${tasks.listid}"`
 
     await con.query(sql)
-    editTitle = await getList(tasks.task)
+    editTitle = await getList(tasks.listid)
     return updatedTitle[0]
 
 }
 //delete 
 async function deleteTodo(tasks){
-    let sql = `DELETE FROM todolist`
+    let sql = `DELETE FROM todolist WHERE ListId=${tasks.listid}`
 
     return await con.query(sql)
 }

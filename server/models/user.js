@@ -16,8 +16,9 @@ createTable()
 
 async function login(user) {
   let userResult = await getUser(user.username)
+  console.log(userResult)
   if(!userResult[0]) throw Error("Username not found!!")
-  if(userResult[0].password != user.userpassword) throw Error("Password Incorrect!!")
+  if(userResult[0].Password != user.userpassword) throw Error("Password Incorrect!!")
 
   return userResult[0]
 }
@@ -25,15 +26,17 @@ async function login(user) {
 // Register (Create) New User
 async function register(user) {
   let userResult = await getUser(user.username)
+  //console.log(userPassword)
   if(userResult.length > 0) throw Error("Username already in use!!")
 
   let sql = `
     INSERT INTO users(UserName, Password, Email)
-    VALUES("${user.username}", "${user.userpassword}", "${user.email}")
+    VALUES("${user.username}", "${user.password}", "${user.email}")
   `
 
   await con.query(sql)
   const newUser = await getUser(user.username)
+  console.log(newUser)
   return newUser[0]
 }
 
@@ -60,10 +63,10 @@ async function deleteUser(user) {
 }
 
 // Useful functions
-async function getUser(user) {
+async function getUser(username) {
   let sql = `
     SELECT * FROM users 
-    WHERE UserName = "${user.username}" 
+    WHERE UserName = "${username}" 
   `
   return await con.query(sql)
 }

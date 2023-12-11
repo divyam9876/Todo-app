@@ -35,7 +35,7 @@ router
 .delete ('/delete', async(req,res)=>{
     try{
         await List.deleteUser(req.body)
-        res.send({success:"completed"})
+        res.send({success:"Task completed"})
     }
     catch(err){
         res.status(401).send({message:err.message})

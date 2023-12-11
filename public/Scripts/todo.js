@@ -27,14 +27,13 @@ function Addtask(e){
     e.preventDefault()
 
     let tasks={
-        task:document.getElementById("note").value}
+        task:document.getElementById("note").value,
+        createdDate: new Date()
+    }
 
     let ul = document.getElementById("todoList")
-    ul.innerHTML += `<li>${tasks.task}</li>`
+    ul.innerHTML += `<li>${tasks.createdDate} ${tasks.task}</li>`
     document.getElementById('note').value=""
-    // let ul = document.createElement('ul')
-    // ui.innerText = tasks
-    // todoList.appendChild(li);
     console.log(tasks)
 }
 

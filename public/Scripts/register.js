@@ -16,7 +16,8 @@ function SignUp(e){
         firstName:document.getElementById("fName").value,
         lastName: document.getElementById("lName").value,
         username: document.getElementById("userName").value,
-        password:document.getElementById("userPassword").value
+        password:document.getElementById("userPassword").value,
+        email:document.getElementById("email").value
     }
     // let h4=document.getElementById("userdetails")
     // h4.innerHTML = `Welcome ${user.firstName} ${user.lastName}`
