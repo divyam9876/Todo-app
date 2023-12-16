@@ -20,17 +20,20 @@
         <br>
         <div class="tododiv">   
             <form action =""  id="todoform"> 
-                <div class="todoform">
+                <!-- <div class="todoform"> -->
+                    <label for="title">Task Title:</label>
+                    <input type="text" placeholder="Add title here" id="title" required>
+                    <br><br>
                     <label for="note">Task</label>
                     <input type="text" placeholder="Add task here" id="note" required>
-                    <br>
+                    <br><br>
                     <button type="submit" value="Addtask" class="submitbtn">Add task</button>
 
                     <!-- <label class="label">Todo:</label> -->
                     <!-- <div class="todotextarea">
                         <textarea rows="5" cols="15"  type="text" placeholder="Add a todo here..."></textarea>
                     </div> -->
-                </div>
+                <!-- </div> -->
             </form>   
         </div>
         <ul id="todoList"></ul>

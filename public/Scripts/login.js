@@ -42,6 +42,7 @@ function login(e){
     fetchData("/users/login", user, "POST")
     .then(data => {
         if(!data.message) {
+            localStorage.setItem("user", JSON.stringify(data));
         window.location.href = "todo.html"
         }
     })

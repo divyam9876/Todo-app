@@ -34,20 +34,6 @@ function SignUp(e){
         errorSection.innerText=err.message
     })
     //console.log(user)
-    // async function fetchData(route = '', data = {}, methodType) {
-    //     const response = await fetch(`http://localhost:3000${route}`, {
-    //       method: methodType, // *POST, PUT, DELETE, etc.
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(data) 
-    //     });
-    //     if(response.ok) {
-    //       return await response.json(); 
-    //     } else {
-    //       throw await response.json();
-    //     }
-    //   } 
     function setCurrentUser(user){
       localStorage.setItem('user',JSON.stringify(user))
     }

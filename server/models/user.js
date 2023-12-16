@@ -16,7 +16,7 @@ createTable()
 
 async function login(user) {
   let userResult = await getUser(user.username)
-  console.log(userResult)
+  //Uconsole.log(userResult)
   if(!userResult[0]) throw Error("Username not found!!")
   if(userResult[0].Password != user.userpassword) throw Error("Password Incorrect!!")
 
@@ -36,7 +36,7 @@ async function register(user) {
 
   await con.query(sql)
   const newUser = await getUser(user.username)
-  console.log(newUser)
+  //console.log(newUser)
   return newUser[0]
 }
 
@@ -64,11 +64,26 @@ async function deleteUser(user) {
 
 // Useful functions
 async function getUser(username) {
-  let sql = `
-    SELECT * FROM users 
-    WHERE UserName = "${username}" 
-  `
-  return await con.query(sql)
+  if(username){
+
+    let sql = `
+      SELECT * FROM users 
+      WHERE UserName = "${username}" 
+    `
+    return await con.query(sql)
+  }else{
+
+    let sql = `
+      SELECT * FROM users
+    `;
+    return await con.query(sql)
+  }
 }
+
+// async function getAllUsers(username){
+//   let sql = `SELECT * FROM users`
+
+//   return await con.query(sql)
+// }
 
 module.exports = {login, register, editUser, deleteUser,getUser}

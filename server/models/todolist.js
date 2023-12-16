@@ -1,26 +1,3 @@
-// const list =[
-//     {
-//         ListId:1,
-//         Title: "Today tasks list",
-//         CreatedDate: "2023-11-30",
-//         UserId:1
-//     },
-//     {
-//         ListId:2,
-//         Title: "Exam schedule",
-//         CreatedDate: "2023-12-01",
-//         UserId:3
-//     },
-//     {
-//         ListId:3,
-//         Title: "PT schedule",
-//         CreatedDate: "2023-11-02",
-//         UserId:1
-//     }
-// ];
-// let getList = () => list;
-// module.exports={getList};
-
 const con = require("./db_connect")
 
 async function createTable(){
@@ -40,44 +17,59 @@ createTable()
 
 //create
 async function createtodo(tasks){
-    let listResult = await getUser(tasks.task)
-    let sql=`INSERT INTO todolist(Title,CreatedDate) VALUES("${tasks.task}","${tasks.CreatedDate}")`
+    let listResult = await getList(tasks)
+    console.log(listResult)
+    let sql=`INSERT INTO todolist(Title,CreatedDate,UserId) VALUES("${tasks.Title}",STR_TO_DATE("${tasks.createdDate}", '%Y-%m-%dT%H:%i:%s.%fZ'),"${tasks.UserId}")`
+
+    // let sql = `INSERT INTO todolist(Title, CreatedDate, UserId) VALUES (?, ?, ?)`;
+    // let values = [tasks.Title, tasks.createdDate, tasks.UserId];
 
     await con.query(sql)
-    const newList = await getList(tasks.task)
+    const newList = await getList(tasks)
+    console.log(newList)
     return newList[0]
     
 }
 
 //read
 async function readtodo(tasks){
-    let listResult = await getList(tasks.task)
+    let listResult = await getList(tasks.Title)
     return listResult[0]
+    
 } 
 
 
 //update
 async function editTitle(tasks){
-    let updatedTitle = await getList(tasks.listid)
-    if(updatedTitle.length<0) throw  Error("list is not yet created")
+    let updatedTitle = await getList(tasks)
+    if(updatedTitle.length<1) throw  Error("list is not yet created")
     let sql = `UPDATE todolist
-    SET Title ="${tasks.task}
-    WHERE ListId = "${tasks.listid}"`
+    SET Title ="${tasks.Title}"
+    WHERE ListId = "${tasks.ListId}"`
+
+    // let sql = `UPDATE todolist
+    // SET Title ="${tasks.Title}"
+    // WHERE CreatedDate = "${tasks.createdDate}"`
 
     await con.query(sql)
-    editTitle = await getList(tasks.listid)
+    editTitle = await getList(tasks)
     return updatedTitle[0]
 
 }
 //delete 
 async function deleteTodo(tasks){
-    let sql = `DELETE FROM todolist WHERE ListId=${tasks.listid}`
-
-    return await con.query(sql)
+    let sql = `DELETE FROM todolist WHERE ListId='${tasks.ListId}'`
+    // let sql = `DELETE FROM todolist WHERE CreatedDate='${tasks.createdDate}'`
+    await con.query(sql)
 }
 
 async function getList(tasks){
-    let sql =`SELECT * FROM todolist WHERE ListId = ${tasks.listid}`
+    let sql =`SELECT * FROM todolist WHERE ListId = '${tasks.ListId}'`
+    // let sql =`SELECT * FROM todolist WHERE CreatedDate='${tasks.createdDate}'`
+    return await con.query(sql)
+}
+async function getByUserId(tasks) {
+    let sql =`SELECT * FROM todolist WHERE UserId='${tasks.UserId}'`
 }
 
-module.exports = {}
+module.exports = {createtodo,readtodo,editTitle,deleteTodo,getList}
